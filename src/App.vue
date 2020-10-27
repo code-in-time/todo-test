@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <div class="row">
       <div class="col">
-        <ToDo />
+        <ToDo username='matt' v-bind:allTodos="allTodos" />
       </div>
       <div class="col">
         <ToDo />
@@ -13,12 +13,34 @@
 
 <script>
 import ToDo from './components/ToDo.vue'
+import axios from 'axios'
 
 export default {
   name: 'App',
   components: {
     ToDo
-  }
+  },
+  data () {
+    return {
+      allTodos: [
+        {completed: false, id: 1, title: "delectus aut autem", userId: 1 }
+      ]
+    }
+  },
+  mounted () {
+    console.log('mounted')
+    this.fetchAPIData()
+  },
+  methods: {
+    fetchAPIData() {
+      axios
+        .get('https://jsonplaceholder.typicode.com/todos')
+        .then(response => {
+          console.log('this.allTodos', this.allTodos)
+          this.allTodos = response.data
+      })
+    }
+}
 }
 </script>
 

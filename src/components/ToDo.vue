@@ -1,5 +1,6 @@
 <template>
   <ul class="list-group">
+    {{username}}
     <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
     <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
     <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
@@ -10,10 +11,13 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  }
+  name: 'ToDo',
+    props: ["allTodos"],
+  // props: {
+  //   msg: String,
+  //   username: String,
+  //     props: ["allTodos"],
+  // }
 }
 </script>
 
