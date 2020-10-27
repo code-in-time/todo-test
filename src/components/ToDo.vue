@@ -1,11 +1,13 @@
 <template>
   <ul class="list-group">
     {{username}}
-    <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
-    <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
-    <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
-    <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
-    <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li>
+    <!-- <li class="list-group-item">Cras justo odio <button type="button" class="btn btn-primary">select</button></li> -->
+
+    <li v-for="item in allTodos" :key="item.userId" class="list-group-item">
+      {{ item.completed }} | {{ item.title }} | {{ item.userId }}
+      Cras justo odio <button type="button" class="btn btn-primary">select</button>
+    </li>
+
   </ul>
 </template>
 
