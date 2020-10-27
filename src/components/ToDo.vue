@@ -1,15 +1,18 @@
 <template>
+
   <table class="table">
     <thead>
       <tr>
-        <th>userId</th>
+        <th>userId {{showCompleted}}</th>
         <th>title</th>
         <th>completed</th>
         <th>button</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="item in allTodos" :key="item.id+item.title">
+      <!-- v-if="'item.completed' === 'showCompleted'" -->
+
+      <tr v-for="item in allTodos" :key="item.id+item.title" v-if="item.completed.toString() == showCompleted">
         <td>{{ item.userId }}</td>
         <td>{{ item.title }}</td>
         <td>{{ item.completed }}</td>
@@ -22,7 +25,7 @@
 <script>
 export default {
   name: 'ToDo',
-    props: ["allTodos"],
+    props: ["allTodos", "showCompleted"],
     methods: {
     say: function (userId) {
       console.log(userId)

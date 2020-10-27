@@ -2,10 +2,10 @@
   <div id="app" class="container">
     <div class="row">
       <div class="col">
-        <ToDo username='matt' v-bind:allTodos="allTodos" />
+        <ToDo username='matt' v-bind:allTodos="allTodos" showCompleted="false"/>
       </div>
       <div class="col">
-        <ToDo />
+        <ToDo username='matt' v-bind:allTodos="allTodos" showCompleted="true"/>
       </div>
     </div>
   </div>
